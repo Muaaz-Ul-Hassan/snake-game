@@ -2,17 +2,92 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake Game</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <h1>Snake Game</h1>
-    <p id="score">Score: 0</p>
-    <canvas id="gameCanvas" width="400" height="400"></canvas>
-    <p>Use Arrow Keys (↑ ↓ ← →) to move the snake</p>
-    <button onclick="startGame()">Start Game</button>
+    <div class="game-container">
+        <div class="header">
+            <h1><i class="fas fa-snake"></i> Snake Game</h1>
+            <p class="subtitle">Eat the food, grow longer, avoid collisions!</p>
+        </div>
+        
+        <div class="game-area">
+            <div class="stats-panel">
+                <div class="score-box">
+                    <h3><i class="fas fa-star"></i> Score</h3>
+                    <div class="score-value" id="score">0</div>
+                </div>
+                
+                <div class="high-score-box">
+                    <h3><i class="fas fa-trophy"></i> High Score</h3>
+                    <div class="score-value" id="high-score">0</div>
+                </div>
+                
+                <div class="level-box">
+                    <h3><i class="fas fa-chart-line"></i> Level</h3>
+                    <div class="score-value" id="level">1</div>
+                </div>
+            </div>
+            
+            <div class="game-board-container">
+                <canvas id="game-board" width="600" height="400"></canvas>
+                <div class="controls">
+                    <button id="start-btn" class="btn btn-start">
+                        <i class="fas fa-play"></i> Start Game
+                    </button>
+                    <button id="pause-btn" class="btn btn-pause">
+                        <i class="fas fa-pause"></i> Pause
+                    </button>
+                    <button id="reset-btn" class="btn btn-reset">
+                        <i class="fas fa-redo"></i> Restart
+                    </button>
+                    <button id="instructions-btn" class="btn btn-instructions">
+                        <i class="fas fa-info-circle"></i> Instructions
+                    </button>
+                </div>
+            </div>
+            
+            <div class="instructions-panel">
+                <h3><i class="fas fa-gamepad"></i> Controls</h3>
+                <div class="control-keys">
+                    <div class="key-row">
+                        <div class="key">↑</div>
+                        <div class="key">W</div>
+                    </div>
+                    <div class="key-row">
+                        <div class="key">←</div>
+                        <div class="key">A</div>
+                        <div class="key">S</div>
+                        <div class="key">D</div>
+                        <div class="key">→</div>
+                    </div>
+                    <div class="key-row">
+                        <div class="key">↓</div>
+                        <div class="key">S</div>
+                    </div>
+                </div>
+                <p>Use arrow keys or WASD to control the snake</p>
+                <p>Eat <span class="food-sample"></span> to grow and increase score</p>
+                <p>Avoid hitting walls or yourself</p>
+            </div>
+        </div>
+        
+        <div class="game-status" id="game-status">
+            <div class="status-content">
+                <h2 id="status-title">Ready to Play</h2>
+                <p id="status-message">Click 'Start Game' to begin!</p>
+                <button id="close-status" class="btn btn-close">OK</button>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Created with <i class="fas fa-heart"></i> | Snake Game Project</p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-
